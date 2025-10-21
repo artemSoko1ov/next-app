@@ -1,23 +1,29 @@
-import axios from "axios";
-import User from "@/components/User";
+'use client'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchUsers } from '@/store/slices/usersSlice'
+import type { RootState, AppDispatch } from '@/store'
+import AddUsersForm from '@/components/AddUsersForm'
+import Link from "next/link";
 
-export default async function Users() {
-  const response = await axios.get('https://jsonplaceholder.typicode.com/users')
-  const users = response.data
+export default function Users() {
+  const dispatch = useDispatch<AppDispatch>()
+  const { list, loading } = useSelector((state: RootState) => state.users)
+
+  useEffect(() => {
+    dispatch(fetchUsers())
+  }, [dispatch])
+
+  if (loading) return <p>Загрузка...</p>
+
   return (
-    <>
-      <section className="users">
-        <div className="users__list">
-          {users.map(({id, name, phone}) => (
-              <User
-                id={id}
-                name={name}
-                phone={phone}
-                key={id}
-              />
-            ))}
+    <section className="users">
+      <AddUsersForm />
+      {list.map(user => (
+        <div key={user.id}>
+          <Link href={`users/${user.id}`}>{user.name}</Link> — {user.phone}
         </div>
-      </section>
-    </>
-  );
-};
+      ))}
+    </section>
+  )
+}
