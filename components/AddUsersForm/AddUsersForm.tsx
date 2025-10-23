@@ -1,4 +1,6 @@
 'use client'
+
+import './AddUsersForm.scss'
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {addUser} from '../../store/slices/usersSlice'
@@ -20,21 +22,55 @@ export default function AddUsersForm() {
     setFormData({name: '', phone: ''})
   }
 
+  const validateForm = () => {
+    const input = document.querySelector('.field')
+    const errorMessages = document.querySelectorAll('.form__error-message')
+
+    // if(input.focus && !formData.name && !formData.phone) {
+    //   errorMessages.textContent = 'Поля не могут быть пустыми'
+    // }
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      className="form"
+      onSubmit={handleSubmit}
+    >
+      <label
+        htmlFor="name"
+        className="form__name-label"
+      >Введите имя
+      </label>
       <input
+        className="form__name-field field"
+        type="text"
+        id="name"
         name="name"
         value={formData.name}
         onChange={handleChange}
-        placeholder="Имя"
+        required
       />
+      <span className="form__error-message message-1"></span>
+      <label
+        htmlFor="phone"
+        className="form__phone-label"
+      >Введите phone
+      </label>
       <input
+        className="form__phone-field field"
+        type="text"
+        id="phone"
         name="phone"
         value={formData.phone}
         onChange={handleChange}
-        placeholder="Телефон"
+        required
       />
-      <button type="submit">Добавить</button>
+      <span className="form__error-message message-2"></span>
+      <button
+        className="form__submit"
+        type="submit"
+      > Добавить пользователя
+      </button>
     </form>
   )
 }

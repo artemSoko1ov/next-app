@@ -1,8 +1,7 @@
 import './Header.scss'
 import Link from "next/link";
 
-const Header = (props) => {
-  const {} = props
+const Header = () => {
   return (
     <header className="header">
       <Link href="/">
@@ -10,6 +9,9 @@ const Header = (props) => {
       </Link>
       <Link href="/users">
         Пользователи
+      </Link>
+      <Link href="/form">
+        Форма
       </Link>
     </header>
   )

@@ -11,8 +11,8 @@ interface Params {
   params: { id: string };
 }
 
-export default async function UserPage({ params }: Params) {
-  const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${params.id}`);
+export default async function UserPage() {
+  const response = await axios.get(`https://jsonplaceholder.typicode.com/users`);
   const user: User = response.data;
 
   return (

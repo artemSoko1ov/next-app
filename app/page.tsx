@@ -1,10 +1,5 @@
-import AddUsersForm from "@/components/AddUsersForm";
+import {HomePage} from "@/pages/home/ui/HomePage";
 
-export default function Home() {
-  return (
-    <>
-      <h1>Добавление пользователей</h1>
-      <AddUsersForm />
-    </>
-  );
+export default function Page() {
+  return <HomePage />
 }
