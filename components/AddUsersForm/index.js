@@ -1,3 +1,3 @@
-import AddUsersForm from './AddUsersForm'
+import AddUsersForm from './AddUsersForm';
 
-export default AddUsersForm
+export default AddUsersForm;

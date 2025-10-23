@@ -25,7 +25,9 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
 
     &:focus {
       border-color: #0070f3;
@@ -42,7 +44,9 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease;
+    transition:
+      background 0.2s ease,
+      transform 0.1s ease;
 
     &:hover {
       background: #0059c9;

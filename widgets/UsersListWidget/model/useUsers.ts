@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from 'react';
 import { fetchUserList } from '@/entities/User/model/api';
