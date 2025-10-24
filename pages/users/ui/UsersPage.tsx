@@ -1,4 +1,4 @@
-import UserList from '@/widgets/UsersListWidget/ui/UserList';
+import { UserList } from '@/widgets/UsersListWidget';
 
 const UsersPage = () => (
   <div className="">

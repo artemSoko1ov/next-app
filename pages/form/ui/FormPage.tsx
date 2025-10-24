@@ -1,9 +1,9 @@
-import AddUsersForm from '@/components/AddUsersForm';
+import { AddUser } from '@/features/AddUser';
 
 const FormPage = () => (
   <div className="">
     <h1 className="">Форма</h1>
-    <AddUsersForm />
+    <AddUser />
   </div>
 );
 
