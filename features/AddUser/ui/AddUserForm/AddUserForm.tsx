@@ -4,7 +4,9 @@ import './AddUserForm.scss';
 import { useAddUserForm } from '@/features/AddUser/model';
 
 function AddUserForm() {
-  const { values, errors, onSubmit, onChange } = useAddUserForm();
+  const { register, formState, onSubmit } = useAddUserForm();
+  const { errors } = formState;
+
   return (
     <form className="form" onSubmit={onSubmit}>
       <label htmlFor="name" className="form__name-label">
@@ -14,12 +16,12 @@ function AddUserForm() {
         className="form__name-field field"
         type="text"
         id="name"
-        name="name"
-        value={values.name}
-        onChange={onChange}
+        maxLength={20}
+        placeholder="Введите имя"
+        {...register('name')}
         required
       />
-      <span className="form__error-message message-1">{errors.nameError}</span>
+      <span className="form__error-message message-1">{errors.name?.message}</span>
       <label htmlFor="phone" className="form__phone-label">
         Введите phone
       </label>
@@ -27,12 +29,12 @@ function AddUserForm() {
         className="form__phone-field field"
         type="text"
         id="phone"
-        name="phone"
-        value={values.phone}
-        onChange={onChange}
+        maxLength={12}
+        placeholder="Введите номер"
+        {...register('phone')}
         required
       />
-      <span className="form__error-message message-2">{errors.phoneError}</span>
+      <span className="form__error-message message-2">{errors.phone?.message}</span>
       <button className="form__submit" type="submit">
         Добавить пользователя
       </button>

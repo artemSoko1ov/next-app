@@ -1,17 +1,17 @@
-import type { FormValues } from '@/features/AddUser/model/types';
+import * as yup from 'yup';
+import type {FormValues} from './types';
 
-export const validateAddUser = (values: FormValues) => {
-  const errorMessages = {
-    nameError: '',
-    phoneError: '',
-  };
+export const addUserSchema: yup.ObjectSchema<FormValues> = yup.object({
+  name: yup
+    .string()
+    .trim()
+    .required('Имя обязательно')
+    .min(4, 'Минимум 4 символа'),
 
-  if (values.name === '') {
-    errorMessages.nameError = 'Имя должно быть заполнено';
-  }
-  if (values.phone === '') {
-    errorMessages.phoneError = 'Телефон должен быть заполнен';
-  }
-
-  return errorMessages;
-};
+  phone: yup
+    .string()
+    .trim()
+    .required('Телефон обязателен')
+    .matches(/^\+?\d{7,15}$/, 'Неверный формат телефона')
+    .min(12, 'В номере должно быть 12 символов')
+});
