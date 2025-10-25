@@ -23,7 +23,7 @@ function AddUserForm() {
       />
       <span className="form__error-message message-1">{errors.name?.message}</span>
       <label htmlFor="phone" className="form__phone-label">
-        Введите phone
+        Введите телефон
       </label>
       <input
         className="form__phone-field field"
