@@ -1,0 +1,55 @@
+html, body, #__next {
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scrollbar-gutter: auto;
+  font-size: var(--base-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &.is-lock {
+    overflow: hidden;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background-color: var(--bg-900);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(120deg, rgba(124,77,255,0.06), rgba(0,229,196,0.03));
+  background-size: 200px 200px, 400px 400px, 100% 100%;
+  opacity: 0.9;
+  animation: starTwinkle 12s linear infinite;
+  mix-blend-mode: screen;
+}
+
+main {
+  flex-grow: 1;
+}
