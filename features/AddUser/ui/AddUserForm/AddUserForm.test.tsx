@@ -32,7 +32,10 @@ describe('AddUserForm', () => {
     await userEvent.click(submit);
 
     await waitFor(() => {
-      expect(console.log).toHaveBeenCalledWith(expect.stringMatching(/Отправлено|Отправка/), expect.any(Object));
+      expect(console.log).toHaveBeenCalledWith(
+        expect.stringMatching(/Отправлено|Отправка/),
+        expect.any(Object),
+      );
     });
   });
 });
