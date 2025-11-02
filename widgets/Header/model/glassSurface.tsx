@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useEffect, useRef, useId } from 'react';
 
 export interface GlassSurfaceProps {
@@ -43,27 +43,27 @@ export interface GlassSurfaceProps {
 }
 
 const GlassSurface: React.FC<GlassSurfaceProps> = ({
-                                                     children,
-                                                     width = 200,
-                                                     height = 80,
-                                                     borderRadius = 20,
-                                                     borderWidth = 0.07,
-                                                     brightness = 50,
-                                                     opacity = 0.93,
-                                                     blur = 11,
-                                                     displace = 0,
-                                                     backgroundOpacity = 0,
-                                                     saturation = 1,
-                                                     distortionScale = -180,
-                                                     redOffset = 0,
-                                                     greenOffset = 10,
-                                                     blueOffset = 20,
-                                                     xChannel = 'R',
-                                                     yChannel = 'G',
-                                                     mixBlendMode = 'difference',
-                                                     className = '',
-                                                     style = {}
-                                                   }) => {
+  children,
+  width = 200,
+  height = 80,
+  borderRadius = 20,
+  borderWidth = 0.07,
+  brightness = 50,
+  opacity = 0.93,
+  blur = 11,
+  displace = 0,
+  backgroundOpacity = 0,
+  saturation = 1,
+  distortionScale = -180,
+  redOffset = 0,
+  greenOffset = 10,
+  blueOffset = 20,
+  xChannel = 'R',
+  yChannel = 'G',
+  mixBlendMode = 'difference',
+  className = '',
+  style = {},
+}) => {
   const id = useId();
   const filterId = `glass-filter-${id}`;
   const redGradId = `red-grad-${id}`;
@@ -113,7 +113,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     [
       { ref: redChannelRef, offset: redOffset },
       { ref: greenChannelRef, offset: greenOffset },
-      { ref: blueChannelRef, offset: blueOffset }
+      { ref: blueChannelRef, offset: blueOffset },
     ].forEach(({ ref, offset }) => {
       if (ref.current) {
         ref.current.setAttribute('scale', (distortionScale + offset).toString());
@@ -138,7 +138,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     blueOffset,
     xChannel,
     yChannel,
-    mixBlendMode
+    mixBlendMode,
   ]);
 
   useEffect(() => {
@@ -193,7 +193,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     borderRadius: `${borderRadius}px`,
     '--glass-frost': backgroundOpacity,
     '--glass-saturation': saturation,
-    '--filter-id': `url(#${filterId})`
+    '--filter-id': `url(#${filterId})`,
   } as React.CSSProperties;
 
   return (
@@ -204,10 +204,31 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     >
       <svg className="glass-surface__filter" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <filter id={filterId} colorInterpolationFilters="sRGB" x="0%" y="0%" width="100%" height="100%">
-            <feImage ref={feImageRef} x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map" />
+          <filter
+            id={filterId}
+            colorInterpolationFilters="sRGB"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+          >
+            <feImage
+              ref={feImageRef}
+              x="0"
+              y="0"
+              width="100%"
+              height="100%"
+              preserveAspectRatio="none"
+              result="map"
+            />
 
-            <feDisplacementMap ref={redChannelRef} in="SourceGraphic" in2="map" id="redchannel" result="dispRed" />
+            <feDisplacementMap
+              ref={redChannelRef}
+              in="SourceGraphic"
+              in2="map"
+              id="redchannel"
+              result="dispRed"
+            />
             <feColorMatrix
               in="dispRed"
               type="matrix"
@@ -235,7 +256,13 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
               result="green"
             />
 
-            <feDisplacementMap ref={blueChannelRef} in="SourceGraphic" in2="map" id="bluechannel" result="dispBlue" />
+            <feDisplacementMap
+              ref={blueChannelRef}
+              in="SourceGraphic"
+              in2="map"
+              id="bluechannel"
+              result="dispBlue"
+            />
             <feColorMatrix
               in="dispBlue"
               type="matrix"

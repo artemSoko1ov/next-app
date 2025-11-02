@@ -25,8 +25,8 @@ const HomePage = () => (
         <div className="home__hero-content">
           <h1 className="home__title">Создавай. Исследуй. Развивайся.</h1>
           <p className="home__subtitle">
-            Добро пожаловать в наш космический мир Next.js — место, где дизайн,
-            технологии и скорость соединяются в одно целое.
+            Добро пожаловать в наш космический мир Next.js — место, где дизайн, технологии и
+            скорость соединяются в одно целое.
           </p>
           <button className="home__cta">Начать путь</button>
         </div>

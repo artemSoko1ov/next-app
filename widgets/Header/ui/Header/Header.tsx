@@ -1,6 +1,6 @@
 import './Header.scss';
 import Link from 'next/link';
-import GlassSurface from '../../model/glassSurface'
+import GlassSurface from '../../model/glassSurface';
 
 const Header = () => {
   return (

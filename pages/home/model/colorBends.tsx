@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
@@ -114,20 +114,20 @@ void main() {
 `;
 
 export default function ColorBends({
-                                     className,
-                                     style,
-                                     rotation = 45,
-                                     speed = 0.2,
-                                     colors = [],
-                                     transparent = true,
-                                     autoRotate = 0,
-                                     scale = 1,
-                                     frequency = 1,
-                                     warpStrength = 1,
-                                     mouseInfluence = 1,
-                                     parallax = 0.5,
-                                     noise = 0.1
-                                   }: ColorBendsProps) {
+  className,
+  style,
+  rotation = 45,
+  speed = 0.2,
+  colors = [],
+  transparent = true,
+  autoRotate = 0,
+  scale = 1,
+  frequency = 1,
+  warpStrength = 1,
+  mouseInfluence = 1,
+  parallax = 0.5,
+  noise = 0.1,
+}: ColorBendsProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const rafRef = useRef<number | null>(null);
@@ -163,10 +163,10 @@ export default function ColorBends({
         uPointer: { value: new THREE.Vector2(0, 0) },
         uMouseInfluence: { value: mouseInfluence },
         uParallax: { value: parallax },
-        uNoise: { value: noise }
+        uNoise: { value: noise },
       },
       premultipliedAlpha: true,
-      transparent: true
+      transparent: true,
     });
     materialRef.current = material;
 
@@ -176,7 +176,7 @@ export default function ColorBends({
     const renderer = new THREE.WebGLRenderer({
       antialias: false,
       powerPreference: 'high-performance',
-      alpha: true
+      alpha: true,
     });
     rendererRef.current = renderer;
     (renderer as any).outputColorSpace = (THREE as any).SRGBColorSpace;
@@ -285,7 +285,7 @@ export default function ColorBends({
     parallax,
     noise,
     colors,
-    transparent
+    transparent,
   ]);
 
   useEffect(() => {

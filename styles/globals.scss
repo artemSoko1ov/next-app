@@ -1,4 +1,6 @@
-html, body, #__next {
+html,
+body,
+#__next {
   height: 100%;
 }
 
@@ -35,16 +37,19 @@ body {
 }
 
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background-image:
-    radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1px),
-    radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-    linear-gradient(120deg, rgba(124,77,255,0.06), rgba(0,229,196,0.03));
-  background-size: 200px 200px, 400px 400px, 100% 100%;
+    radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(120deg, rgba(124, 77, 255, 0.06), rgba(0, 229, 196, 0.03));
+  background-size:
+    200px 200px,
+    400px 400px,
+    100% 100%;
   opacity: 0.9;
   animation: starTwinkle 12s linear infinite;
   mix-blend-mode: screen;
