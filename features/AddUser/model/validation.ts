@@ -11,5 +11,6 @@ export const addUserSchema: yup.ObjectSchema<FormValues> = yup.object({
     .trim()
     .required('Телефон обязателен')
     .matches(regExpPhone, 'Неверный формат телефона')
-    .min(12, 'В номере должно быть 12 символов'),
+    .min(11, 'В номере должно быть 11 символов')
+    .max(11, 'В номере должно быть 11 символов'),
 });

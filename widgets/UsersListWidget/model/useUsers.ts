@@ -1,27 +1,19 @@
-'use client';
-
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { fetchUserList } from '@/entities/User/model/api';
 import type { User } from '@/entities/User';
 
 export const useUsers = () => {
-  const [users, setUsers] = useState<User[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const {
+    data: users,
+    isLoading,
+    isError,
+    error,
+    refetch,
+  } = useQuery<User[], Error>({
+    queryKey: ['users'],
+    queryFn: fetchUserList,
+    staleTime: 1000 * 60 * 5,
+  });
 
-  useEffect(() => {
-    const load = async () => {
-      try {
-        const data = await fetchUserList();
-        setUsers(data);
-      } catch (err) {
-        setError('Ошибка при загрузке пользователей');
-      } finally {
-        setLoading(false);
-      }
-    };
-    load();
-  }, []);
-
-  return { users, loading, error };
+  return { users, isLoading, isError, error, refetch };
 };

@@ -2,39 +2,42 @@
 
 import './AddUserForm.scss';
 import { useAddUserForm } from '@/features/AddUser/model';
+import { TextField, Button, Box, Typography, Rating, NoSsr } from '@mui/material';
 
 function AddUserForm() {
   const { register, formState, onSubmit } = useAddUserForm();
   const { errors } = formState;
 
   return (
-    <form className="form" onSubmit={onSubmit}>
-      <label htmlFor="name" className="form__name-label">
-        Введите имя
-      </label>
-      <input
-        className="form__name-field field"
-        type="text"
-        id="name"
-        placeholder="Введите имя"
-        {...register('name')}
-      />
-      <span className="form__error-message message-1">{errors.name?.message}</span>
-      <label htmlFor="phone" className="form__phone-label">
-        Введите телефон
-      </label>
-      <input
-        className="form__phone-field field"
-        type="text"
-        id="phone"
-        placeholder="Введите номер"
-        {...register('phone')}
-      />
-      <span className="form__error-message message-2">{errors.phone?.message}</span>
-      <button className="form__submit" type="submit">
+    <Box component="form" className="mui-form" onSubmit={onSubmit}>
+      <Typography variant="h5" textAlign="center" color="#00ffd1">
         Добавить пользователя
-      </button>
-    </form>
+      </Typography>
+
+      <TextField
+        label="Имя"
+        className="mui-form__field"
+        variant="outlined"
+        fullWidth
+        {...register('name')}
+        error={!!errors.name}
+        helperText={errors.name?.message}
+      />
+
+      <TextField
+        label="Телефон"
+        className="mui-form__field"
+        variant="outlined"
+        fullWidth
+        {...register('phone')}
+        error={!!errors.phone}
+        helperText={errors.phone?.message}
+      />
+
+      <Button type="submit" className="mui-form__submit" variant="contained">
+        Добавить
+      </Button>
+    </Box>
   );
 }
 

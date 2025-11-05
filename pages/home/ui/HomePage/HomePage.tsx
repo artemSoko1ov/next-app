@@ -5,7 +5,7 @@ import './HomePage.scss';
 
 const HomePage = () => (
   <div className="home">
-    <div className="home__background">
+    <div className="home__background background">
       <ColorBends
         colors={['#ff5c7a', '#8a5cff', '#00ffd1']}
         rotation={100}

@@ -1,13 +1,22 @@
-import type { ReactNode } from 'react';
+'use client';
+
+import { ReactNode, useState } from 'react';
 import { Header } from '@/widgets/Header';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import '@/styles';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const [client] = useState(() => new QueryClient());
+
   return (
     <html lang="ru">
       <body>
-        <Header />
-        <main className="content">{children}</main>
+        <QueryClientProvider client={client}>
+          <Header />
+          <main className="content">{children}</main>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
       </body>
     </html>
   );
