@@ -10,11 +10,11 @@ const HomePage = () => (
         colors={['#ff5c7a', '#8a5cff', '#00ffd1']}
         rotation={100}
         speed={0.3}
-        scale={1}
+        scale={1.4}
         frequency={1}
         warpStrength={1}
         mouseInfluence={0.8}
-        parallax={0.6}
+        parallax={0.5}
         noise={0.1}
         transparent
       />

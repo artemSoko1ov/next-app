@@ -3,15 +3,12 @@
   justify-content: center;
   align-items: center;
   margin: 25px auto;
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  transition: transform 0.3s ease;
   cursor: pointer;
   width: fit-content;
 
   &:hover {
     transform: translateY(-4px) scale(1.02);
-    filter: drop-shadow(0 0 12px rgba(0, 255, 209, 0.35));
   }
 
   a {

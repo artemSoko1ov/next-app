@@ -4,10 +4,12 @@ import { ReactNode, useState } from 'react';
 import { Header } from '@/widgets/Header';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import '@/styles';
+import { useMouseGradient } from '@/shared/lib/hooks/useMouseGradient';
+import '@/app/styles';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const [client] = useState(() => new QueryClient());
+  useMouseGradient();
 
   return (
     <html lang="ru">
