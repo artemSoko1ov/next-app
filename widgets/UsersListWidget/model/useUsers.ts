@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchUserList } from '@/entities/User/model/api';
+import { fetchUsers } from '@/entities/User/model/api';
 import type { User } from '@/entities/User';
 
 export const useUsers = () => {
@@ -11,7 +11,7 @@ export const useUsers = () => {
     refetch,
   } = useQuery<User[], Error>({
     queryKey: ['users'],
-    queryFn: fetchUserList,
+    queryFn: fetchUsers,
     staleTime: 1000 * 60 * 5,
   });
 

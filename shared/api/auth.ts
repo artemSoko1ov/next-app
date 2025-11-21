@@ -1,8 +1,8 @@
-import { api } from '@/shared/api/axiosInstance';
+import { fakeStoreApi } from '@/shared/api/axiosInstance';
 
 export const login = async (username: string, password: string) => {
   try {
-    const res = await api.post('/auth/login', { username, password });
+    const res = await fakeStoreApi.post('/auth/login', { username, password });
 
     alert(` Успешный вход!\nТокен: ${res.data.token}`);
     return res.data;
@@ -28,7 +28,7 @@ export const login = async (username: string, password: string) => {
 
 export const register = async (username: string, password: string) => {
   try {
-    const res = await api.post('/users', {
+    const res = await fakeStoreApi.post('/users', {
       email: `${username}@example.com`,
       username,
       password,

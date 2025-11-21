@@ -5,4 +5,4 @@ export type { User } from './model/types';
 export * from './model/api';
 
 // Экспорт UI-компонентов
-export { UserCard } from './ui/UserCard/UserCard';
+export { default as UserCard } from './ui/UserCard';
